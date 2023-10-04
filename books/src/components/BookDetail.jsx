@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import * as API from '../services/data'
 import { useState, useEffect } from 'react'
+import { Box, Flex, Center, Image } from '@chakra-ui/react'
 
 
 export function BookDetail(id) {
@@ -15,27 +16,49 @@ export function BookDetail(id) {
 
         <Box mt='50'>
             <Box mt='6' borderWidth='1px' borderRadius='lg' p='6' >
-                <>
-                    <Flex mb='2'>
-                        <Box w='20%' color='gray.400'>Title:</Box>
-                        <Box w='80%'>{book[0].title}</Box>
-                    </Flex>
-                    {!book[0] ? (<div>Loading...</div>) : (
-                        <div >
-                            <div>Title: {book[0].title}</div><br />
-                            <div>Author: {book[0].author}</div><br />
-                            <div>Publisher: {book[0].publisher}</div><br />
-                            <div>Date: {book[0].publisher_date}</div><br />
-                            <div>Pages: {book[0].pages}</div><br />
-                            <div>Language: {book[0].language}</div><br />
-                            <div>Categories: {book[0].categories.map(categorie => (
+                {!book[0] ? (<div>Loading...</div>) : (
+                    <>
+                        <Flex mb='2'>
+                            <Box w='20%' color='gray.400'>Title:</Box>
+                            <Box w='80%'>{book[0].title}</Box>
+                        </Flex>
+                        <Flex mb='2'>
+                            <Box w='20%' color='gray.400'>Author:</Box>
+                            <Box w='80%'>{book[0].author}</Box>
+                        </Flex>
+                        <Flex mb='2'>
+                            <Box w='20%' color='gray.400'>Publisher:</Box>
+                            <Box w='80%'>{book[0].publisher}</Box>
+                        </Flex>
+                        <Flex mb='2'>
+                            <Box w='20%' color='gray.400'>Date:</Box>
+                            <Box w='80%'>{book[0].publisher_date}</Box>
+                        </Flex>
+                        <Flex mb='2'>
+                            <Box w='20%' color='gray.400'>Pages:</Box>
+                            <Box w='80%'>{book[0].pages}</Box>
+                        </Flex>
+                        <Flex mb='2'>
+                            <Box w='20%' color='gray.400'>Categories:</Box>
+                            <Box w='80%'>{book[0].language}</Box>
+                        </Flex>
+                        <Flex mb='2'>
+                            <Box w='20%' color='gray.400'>Date:</Box>
+                            <Box w='80%'>{book[0].categories.map(categorie => (
                                 categorie.name + ' '
-                            ))} </div><br />
-                            <div>Link: {book[0].url_download}</div><br />
-                            <div>Content: {book[0].content}</div><br />
-                        </div>
-                    )}
-                </>
+                            ))}</Box>
+                        </Flex>
+                        <Flex mb='2'>
+                            <Box w='20%' color='gray.400'>Link:</Box>
+                            <Box w='80%'><a href={book[0].url_download} target='_blank'>{book[0].url_download}</a></Box>
+                        </Flex>
+                        <Flex mb='2'>
+                            <Box w='20%' color='gray.400'>Content:</Box>
+                            <Box w='80%'>{book[0].content}</Box>
+                        </Flex>
+                        <Center><Image width='300px' borderRadius='lg' mt='6' /></Center>
+                    </>
+                )}
             </Box>
         </Box>
 
