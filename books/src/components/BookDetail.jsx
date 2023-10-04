@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom'
 import * as API from '../services/data'
 import { useState, useEffect } from 'react'
 import { Box, Flex, Center, Image } from '@chakra-ui/react'
-
+import loading from '../img/Load_Icon.gif'
 
 export function BookDetail(id) {
     let params = useParams()
@@ -16,7 +16,7 @@ export function BookDetail(id) {
 
         <Box mt='50'>
             <Box mt='6' borderWidth='1px' borderRadius='lg' p='6' >
-                {!book[0] ? (<div>Loading...</div>) : (
+                {!book[0] ? (<Center><Image src={loading} /></Center>) : (
                     <>
                         <Flex mb='2'>
                             <Box w='20%' color='gray.400'>Title:</Box>
