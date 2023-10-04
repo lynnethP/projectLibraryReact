@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import * as API from '../services/data'
 import { BookItem } from "./BookItem"
+import { Flex } from "@chakra-ui/react"
 
 export function BookList() {
     const [books, setBooks] = useState([])
@@ -11,13 +12,15 @@ export function BookList() {
 
     return (
         <>
-            <ul>
-                {
-                    books.map((book) => (
-                        <BookItem key={book.ID} {...book} />
-                    ))
-                }
-            </ul>
+            <section>
+                <Flex direction='column'>
+                    {
+                        books.map((book) => (
+                            <BookItem key={book.ID} {...book} />
+                        ))
+                    }
+                </Flex>
+            </section>
         </>
     )
 }
