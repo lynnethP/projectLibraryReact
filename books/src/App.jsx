@@ -1,5 +1,6 @@
 import { BookList } from './components/BookList'
 import { Header } from './components/Header'
+import { BookSearchList } from './components/BooksearchList'
 import { BookDetail } from './components/BookDetail'
 import { Routes, Route } from 'react-router-dom'
 import {Box} from '@chakra-ui/react'
@@ -15,6 +16,7 @@ export function App() {
         <Routes>
           <Route path='/' element={<BookList />} />
           <Route path='book/:bookId' element={<BookDetail />} />
+          <Route path='search/:word' element={<BookSearchList />} />
         </Routes>
       </Box>
 

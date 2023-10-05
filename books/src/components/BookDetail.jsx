@@ -50,7 +50,7 @@ export function BookDetail(id) {
                         </Flex>
                         <Flex mb='2'>
                             <Box w='20%' color='gray.400'>Link:</Box>
-                            <Box w='80%'><a href={book[0].url_download} target='_blank'>{book[0].url_download}</a></Box>
+                            <Box w='80%'><a href={book[0].url_download} target='_blank' rel="noopener noreferrer">{book[0].url_download}</a></Box>
                         </Flex>
                         <Flex mb='2'>
                             <Box w='20%' color='gray.400'>Content:</Box>
